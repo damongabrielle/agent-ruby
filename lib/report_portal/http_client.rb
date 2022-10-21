@@ -8,7 +8,7 @@ module ReportPortal
     end
 
     def send_request(verb, path, options = {})
-      path.prepend("/api/v1/#{Settings.instance.project}/")
+      path.prepend("/#{Settings.instance.project}/")
       path.prepend(origin) unless use_persistent?
       3.times do
         begin
