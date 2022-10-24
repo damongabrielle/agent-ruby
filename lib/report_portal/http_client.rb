@@ -13,7 +13,7 @@ module ReportPortal
 #       puts "ENV #{ENV.fetch('RP_API_URL', 'no env override for RP_API_URL')} ::"
 #       puts "Settings.instance.project    #{Settings.instance.project} ::"
 #       puts path
-#       puts "origin is #{origin}"
+      puts "origin is #{origin}"
       origin = ENV.fetch("RP_API_URL", origin)
 #       puts origin
       path.prepend("/#{Settings.instance.project}/")
