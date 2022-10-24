@@ -1,5 +1,5 @@
 require 'http'
-require 'logger'
+
 
 module ReportPortal
   # @api private
@@ -11,11 +11,10 @@ module ReportPortal
     def send_request(verb, path, options = {})
       path.prepend("/#{Settings.instance.project}/")
       path.prepend(origin) unless use_persistent?
-      @logger = Logger.new(STDOUT)
-      @logger.info "RP_API_URL is "+ENV.fetch("RP_API_URL")
-      @logger.info path
+      puts "ENV #{ENV.fetch("RP_API_URL")} ::"
+      puts path
       path = ENV.fetch("RP_API_URL", path)
-      @logger.info path
+      puts path
       3.times do
         begin
           response = @http.request(verb, path, options)
