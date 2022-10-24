@@ -9,8 +9,8 @@ module ReportPortal
     end
 
     def send_request(verb, path, options = {})
-      
       puts "ENV #{ENV.fetch('RP_API_URL', 'no env override for RP_API_URL')} ::"
+      puts "Settings.instance.project    #{Settings.instance.project} ::"
       puts path
       path = ENV.fetch("RP_API_URL", path)
       puts path
