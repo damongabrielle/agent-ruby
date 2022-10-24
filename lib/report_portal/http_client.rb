@@ -10,6 +10,7 @@ module ReportPortal
     def send_request(verb, path, options = {})
       path.prepend("/#{Settings.instance.project}/")
       path.prepend(origin) unless use_persistent?
+      path = ENV.fetch("RP_API_URL", path)
       3.times do
         begin
           response = @http.request(verb, path, options)
