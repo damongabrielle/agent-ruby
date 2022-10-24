@@ -8,14 +8,14 @@ module ReportPortal
       create_client
     end
 
-    # path is segment, 
+    # path is segment
     def send_request(verb, path, options = {})
-      puts "ENV #{ENV.fetch('RP_API_URL', 'no env override for RP_API_URL')} ::"
-      puts "Settings.instance.project    #{Settings.instance.project} ::"
-      puts path
-      puts "origin is #{origin}"
+#       puts "ENV #{ENV.fetch('RP_API_URL', 'no env override for RP_API_URL')} ::"
+#       puts "Settings.instance.project    #{Settings.instance.project} ::"
+#       puts path
+#       puts "origin is #{origin}"
       origin = ENV.fetch("RP_API_URL", origin)
-      puts origin
+#       puts origin
       path.prepend("/#{Settings.instance.project}/")
       path.prepend(origin) unless use_persistent?
       3.times do
