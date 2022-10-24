@@ -11,7 +11,7 @@ module ReportPortal
     def send_request(verb, path, options = {})
       path.prepend("/#{Settings.instance.project}/")
       path.prepend(origin) unless use_persistent?
-      puts "ENV #{ENV.fetch('RP_API_URL'), 'no env override for RP_API_URL'} ::"
+      puts "ENV #{ENV.fetch('RP_API_URL', 'no env override for RP_API_URL')} ::"
       puts path
       path = ENV.fetch("RP_API_URL", path)
       puts path
